@@ -34,8 +34,8 @@ window.KEEPSAKE_CONFIG = {
   // PayPal "Buy Now" (standard _xclick). Payments go to this PayPal account.
   paypal: {
     business: "tcavallaro1@gmail.com",
-    returnUrl: "https://keepsakephotos.net/thanks/",
-    cancelUrl: "https://keepsakephotos.net/#pricing"
+    returnUrl: "",   // empty = <current site>/thanks/ (works on github.io now and keepsakephotos.net later)
+    cancelUrl: ""    // empty = <current site>/#pricing
   },
 
   // Square checkout links (Square Dashboard > Online Checkout > Payment links).

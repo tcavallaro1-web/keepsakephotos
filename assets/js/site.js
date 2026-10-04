@@ -9,7 +9,9 @@
   var isMobile = (navigator.userAgentData && navigator.userAgentData.mobile) ||
     /Android|iPhone|iPad|iPod|Mobile|Silk|Kindle/i.test(ua) ||
     (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
-  if (isMobile) doc.classList.add("is-mobile");
+  /* Only touch <html> when CSS media queries don't already cover it (avoids a full restyle on phones). */
+  var cssPhone = window.matchMedia && window.matchMedia("(max-width: 640px), (pointer: coarse) and (max-width: 1024px)").matches;
+  if (isMobile && !cssPhone) doc.classList.add("is-mobile");
 
   function isPlaceholder(v) { return !v || /GITHUB_USER|PLACEHOLDER|TODO/.test(v); }
 
@@ -48,6 +50,12 @@
   /* Pricing / checkout */
   var eds = C.editions || {};
   function money(p) { return "$" + (String(p).replace(/\.00$/, "")); }
+  /* Site root, worked out from the manifest link, so PayPal returns buyers to whichever host serves the site
+     (github.io preview now, keepsakephotos.net later) unless the config pins a URL. */
+  var root = (function () {
+    var m = document.querySelector('link[rel="manifest"]');
+    return m ? m.href.replace(/site\.webmanifest$/, "") : location.origin + "/";
+  })();
   function paypalUrl(id) {
     var e = eds[id], p = C.paypal || {};
     if (!e || !p.business) return "";
@@ -61,8 +69,8 @@
       quantity: "1",
       no_shipping: "1",
       no_note: "1",
-      "return": p.returnUrl || "",
-      cancel_return: p.cancelUrl || "",
+      "return": p.returnUrl || root + "thanks/",
+      cancel_return: p.cancelUrl || root + "#pricing",
       rm: "1"
     };
     return "https://www.paypal.com/cgi-bin/webscr?" + Object.keys(q).filter(function (k) { return q[k]; })
