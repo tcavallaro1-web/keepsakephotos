@@ -18,7 +18,7 @@ window.KEEPSAKE_CONFIG = {
   platform: "Windows 10 & 11 (64-bit)",
 
   // One-click installer download: GitHub Release asset (302 to a signed URL, served as an attachment).
-  downloadUrl: "https://github.com/tcavallaro1-web/keepsakephotos/releases/download/v1.3.11/Keepsake-Photos-Setup-1.3.11.exe",
+  downloadUrl: "", // HOLD: 1.3.11 pulled; set to 1.3.12 release asset when it passes QA
   downloadFileName: "Keepsake-Photos-Setup-1.3.11.exe",
 
   // Editions (one-time lifetime serials). Names and prices come from the original site
