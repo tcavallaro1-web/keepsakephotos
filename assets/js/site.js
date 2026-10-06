@@ -22,7 +22,9 @@
     platform: C.platform,
     releaseDate: C.releaseDate || "Coming soon",
     supportEmail: C.supportEmail,
-    publisher: C.publisher
+    publisher: C.publisher,
+    sha256: C.sha256,
+    downloadFileName: C.downloadFileName
   };
   Array.prototype.forEach.call(document.querySelectorAll("[data-config]"), function (el) {
     var v = facts[el.getAttribute("data-config")];
@@ -62,7 +64,7 @@
     var q = {
       cmd: "_xclick",
       business: p.business,
-      item_name: (C.product || "Keepsake Photos") + " " + e.name + " lifetime activation code",
+      item_name: (C.product || "Keepsake Photos") + " " + e.name + " lifetime serial",
       item_number: "keepsake-" + id,
       amount: e.price,
       currency_code: C.currency || "USD",
