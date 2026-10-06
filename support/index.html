@@ -52,15 +52,17 @@
 <h2>Install in four steps</h2>
 <ol>
 <li><strong>Download</strong> the installer from the <a href="/keepsakephotos/#download">download section</a> on your Windows PC.</li>
-<li><strong>Run the installer:</strong> double-click <strong>Keepsake-Photos-Setup-1.3.11.exe</strong>. If SmartScreen appears, choose <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
+<li><strong>Run the installer:</strong> double-click <code class="file" data-config="downloadFileName">Keepsake-Photos-Setup-1.3.11.exe</code>. If SmartScreen appears, choose <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
 <li><strong>Open</strong> Keepsake Photos from the Windows Start menu and accept the terms.</li>
 <li><strong>Organize:</strong> use every feature free for 3 days, with scans of up to 1,000 photos. Enter your serial to scan the rest.</li>
 </ol>
 <h2>Common questions</h2>
 <h3>Windows says it protected my PC</h3>
 <p>SmartScreen can show this for new apps. If you downloaded Keepsake Photos from this site, choose <strong>More info</strong>, then <strong>Run anyway</strong>.</p>
+<div data-requires-download>
 <h3>Check that your download is genuine</h3>
-<p>In PowerShell, run <code>Get-FileHash .&#92;Keepsake-Photos-Setup-1.3.11.exe</code> in your Downloads folder. The result should be <code class="hash">6ab62d01c197da9c00fd7bff15b6ba01a93b8b00e28fec880784b556bf166d4b</code>.</p>
+<p>In PowerShell, open your Downloads folder and run <code class="file">Get-FileHash .&#92;<span data-config="downloadFileName">Keepsake-Photos-Setup-1.3.11.exe</span></code>. The result should be <code class="hash" data-config="sha256">6ab62d01c197da9c00fd7bff15b6ba01a93b8b00e28fec880784b556bf166d4b</code>.</p>
+</div>
 <h3>Entering your serial</h3>
 <p>In the app, open the &middot;&middot;&middot; menu, choose <strong>Serial</strong>, and paste your serial into <strong>Unlock Keepsake Photos</strong>.</p>
 <h3>I bought a serial but haven&rsquo;t received it</h3>

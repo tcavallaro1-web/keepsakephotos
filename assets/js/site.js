@@ -36,6 +36,10 @@
 
   /* Download links: plain anchors. JS only sets the href once; the browser does the rest. */
   var dlReady = !isPlaceholder(C.downloadUrl);
+  /* Checksum lines only make sense while a download is offered. */
+  Array.prototype.forEach.call(document.querySelectorAll("[data-requires-download]"), function (el) {
+    if (!dlReady || !C.sha256) el.hidden = true;
+  });
   Array.prototype.forEach.call(document.querySelectorAll("a[data-download]"), function (a) {
     if (dlReady) {
       a.href = C.downloadUrl;
